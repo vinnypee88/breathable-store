@@ -1,26 +1,36 @@
 import { Link } from "react-router-dom";
 import "./CartItem.css";
 
-const CartItem = () => {
+const CartItem = ({ item, qtyChangeHandler, removeFromCart }) => {
   return (
     <div className="cartitem">
       <div className="cartitem_image">
-        <img src="../images/shirt1.jpg" alt="shirt 1" />
+        <img src={item.image_url} alt={item.name} />
       </div>
 
-      <Link to={`/product/${1}`}>
-        <p>Product 1</p>
+      <Link to={`/product/${item.id}`}>
+        <p>{item.name}</p>
       </Link>
 
-      <p className="cartitem_price">$499.99</p>
-      <select className="cartitem_select">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+      <p className="cartitem_price">${item.price}</p>
+      <select
+        className="cartitem_select"
+        value={item.qty}
+        onChange={(e) => qtyChangeHandler(item.id, parseInt(e.target.value))}
+      >
+        {[...Array(item.stock_count).keys()].map((x) => {
+          return (
+            <option key={x + 1} value={x + 1}>
+              {x + 1}
+            </option>
+          );
+        })}
       </select>
 
-      <button className="cartitem_deleteBtn">
+      <button
+        className="cartitem_deleteBtn"
+        onClick={() => removeFromCart(item.id)}
+      >
         <i className="fas fa-trash"></i>
       </button>
     </div>

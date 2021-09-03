@@ -5,7 +5,7 @@ const pool = require("../db/db");
 class products {
   getAllProducts = async (req, res) => {
     try {
-      const products = await pool.query("SELECT * FROM product");
+      const products = await pool.query("SELECT * FROM product ORDER BY id");
       res.json(products.rows);
     } catch (error) {
       console.error(error);
