@@ -19,10 +19,10 @@ router.get("/success", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
+    console.log("route hit");
     //create lineItems array by retrieving prices from the DB
     const lineItems = req.body.items.map(async (item) => {
       const unitPriceFromDB = await getPrice(item.id);
-      const itemId = JSON.stringify({ itemId: item.id });
       return {
         price_data: {
           currency: "gbp",

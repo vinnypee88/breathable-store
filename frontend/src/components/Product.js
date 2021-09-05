@@ -11,7 +11,7 @@ const Product = ({ product }) => {
         {/* not using description in the homepage for now because long descriptions skew the styling
         can use description.substring(0,100) to display only the first 100 characters*/}
         {/* <p className="info_description">{product.description}</p> */}
-        <p className="info_price">${product.price}</p>
+        <p className="info_price">£{product.price}</p>
         <Link to={`/product/${product.id}`} className="info_button">
           view
         </Link>

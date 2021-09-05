@@ -59,7 +59,8 @@
 .right_info p > button {
   grid-column: 1/-1;
   padding: 10px 16 px;
-  background: #171717;
+  background: #0c0ebd;
+  padding: 0.3rem;
   color: #f4f4f4;
   border: 1px solid #171717;
   cursor: pointer;

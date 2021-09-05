@@ -17,24 +17,20 @@
 }
 
 .successscreen_returnbutton {
-  margin: 1rem;
-  flex: 0.4;
-  color: #f4f4f4;
-  background: #333;
-  padding: 10px;
+  background: #fff;
   border-radius: 8px;
   font-size: 1.2rem;
   font-weight: bold;
   width: fit-content;
 }
-
-.successscreen_returnbutton > a {
+.successscreen_returnbuttonlink {
   text-decoration: none;
-  color: #f4f4f4;
+  color: #0c0ebd;
+  padding: 1rem;
 }
-
 .successscreen_returnbutton:hover {
-  background: #dd219e;
+  background: #0c0ebd;
+}
+.successscreen_returnbuttonlink:hover {
   color: #f4f4f4;
-  text-decoration: none;
 }

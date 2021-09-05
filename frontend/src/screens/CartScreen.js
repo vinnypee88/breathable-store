@@ -58,7 +58,10 @@ const CartScreen = () => {
         <h2>Shopping Cart</h2>
         {cart.length === 0 ? (
           <div>
-            Cart Empty <Link to="/">Go To Store</Link>
+            Cart Empty{" "}
+            <Link className="cartscreen_emptycartlink" to="/">
+              Go To Store
+            </Link>
           </div>
         ) : (
           cart.map((item) => {
@@ -76,7 +79,8 @@ const CartScreen = () => {
       <div className="cartscreen_right">
         <div className="cartscreen_info">
           <p>Subtotal ({getCartCount()}) items</p>
-          <p>${getCartTotalPrice().toFixed(2)}</p>
+          <p>£{getCartTotalPrice().toFixed(2)}</p>
+          <p>£3.99 Standard delivery charge </p>
         </div>
         <div>
           <form>

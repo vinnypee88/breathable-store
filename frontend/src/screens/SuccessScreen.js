@@ -63,7 +63,10 @@ const SuccessScreen = () => {
       </div>
 
       <div className="successscreen_returnbutton">
-        <Link to="/">Return To Store</Link>
+        {" "}
+        <Link className="successscreen_returnbuttonlink" to="/">
+          Return To Store
+        </Link>
       </div>
     </div>
   );

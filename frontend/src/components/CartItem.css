@@ -13,10 +13,15 @@
 .cartitem_name {
   text-decoration: none;
   color: #171717;
+  font-size: 1.3rem;
+}
+.cartitem_price {
+  font-size: 1.3rem;
 }
 
 .cartitem_name:hover {
-  color: #dd219e;
+  color: #0c0ebd;
+  font-weight: bold;
 }
 
 .cartitem_select {
@@ -35,7 +40,7 @@
 .cartitem_deleteBtn:hover,
 .cartitem_deleteBtn:active,
 .cartitem_deleteBtn:focus {
-  background: #171717;
+  background: #0c0ebd;
   transform: scale(1.2);
 }
 

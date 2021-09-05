@@ -13,7 +13,9 @@ const Navbar = ({ click }) => {
     <nav className="navbar">
       {/* logo */}
       <div className="navbar_logo">
-        <h2>Breathable Clothing</h2>
+        <Link className="title" to="/">
+          <i className="fas fa-tshirt fa-spin"></i> Breathable Clothing
+        </Link>
       </div>
       {/* links */}
       <ul className="navbar_links">
@@ -27,9 +29,7 @@ const Navbar = ({ click }) => {
             </span>
           </Link>
         </li>
-        <li>
-          <Link to="/">Shop</Link>
-        </li>
+        <li></li>
       </ul>
       {/* hamburgermenu mobile */}
       <div className="hamburger_menu" onClick={click}>
