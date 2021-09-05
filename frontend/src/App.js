@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
+import SuccessScreen from "./screens/SuccessScreen";
+import CancelScreen from "./screens/CancelScreen";
 
 //components
 import Navbar from "./components/Navbar";
@@ -35,6 +37,8 @@ function App() {
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/cart" component={CartScreen} />
+          <Route exact path="/success" component={SuccessScreen} />
+          <Route exact path="/cancel" component={CancelScreen} />
         </Switch>
       </main>
     </Router>

@@ -13,7 +13,7 @@ const Navbar = ({ click }) => {
     <nav className="navbar">
       {/* logo */}
       <div className="navbar_logo">
-        <h2>Breathable shopping Cart</h2>
+        <h2>Breathable Clothing</h2>
       </div>
       {/* links */}
       <ul className="navbar_links">

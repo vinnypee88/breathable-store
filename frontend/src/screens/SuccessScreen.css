@@ -1,0 +1,40 @@
+.successscreen {
+  max-width: 1300px;
+  margin: 2rem auto;
+}
+
+.successscreen_title,
+.successscreen_notification {
+  margin-bottom: 1.3rem;
+  margin: 1rem;
+}
+
+.successdetails,
+.successitems_list,
+.successscreen_returnbutton {
+  margin: 1rem;
+  background: #fff;
+}
+
+.successscreen_returnbutton {
+  margin: 1rem;
+  flex: 0.4;
+  color: #f4f4f4;
+  background: #333;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.successscreen_returnbutton > a {
+  text-decoration: none;
+  color: #f4f4f4;
+}
+
+.successscreen_returnbutton:hover {
+  background: #dd219e;
+  color: #f4f4f4;
+  text-decoration: none;
+}

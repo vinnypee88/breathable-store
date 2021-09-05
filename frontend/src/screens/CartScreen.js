@@ -33,6 +33,25 @@ const CartScreen = () => {
     );
   };
 
+  const checkout = async (e) => {
+    e.preventDefault();
+    await fetch("http://localhost:5000/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ items: cart }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((e) => console.log(e.message));
+  };
+
   return (
     <div className="cartscreen">
       <div className="cartscreen_left">
@@ -60,7 +79,9 @@ const CartScreen = () => {
           <p>${getCartTotalPrice().toFixed(2)}</p>
         </div>
         <div>
-          <button>Proceed to Checkout</button>
+          <form>
+            <button onClick={(e) => checkout(e)}>Proceed to Checkout</button>
+          </form>
         </div>
       </div>
     </div>

@@ -1,0 +1,19 @@
+.shippingdetails_container {
+  padding: 2rem;
+}
+
+.ordersummary_title {
+  margin-bottom: 1rem;
+}
+.shippingaddress_title {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ordersummary_orderid {
+  color: darkblue;
+  font-weight: bold;
+}
+.shippingdetails_container > p {
+  margin-bottom: 0.3rem;
+}

@@ -1,0 +1,27 @@
+.successitem {
+  padding: 2rem;
+}
+
+.successitems_title {
+  margin-bottom: 1rem;
+}
+
+.successitems_element {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.successitems_element > img {
+  height: 150px;
+  width: auto;
+}
+
+.successitems_info {
+  padding-left: 2rem;
+}
+
+.successitem_link > a {
+  text-decoration: none;
+  color: darkblue;
+  font-weight: bold;
+}
