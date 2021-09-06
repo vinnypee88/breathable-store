@@ -7,3 +7,22 @@ CREATE TABLE product (
     image_url VARCHAR(200) NOT NULL
 );
 
+CREATE TABLE orders (
+    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    order_date DATE NOT NULL,
+    customer_email VARCHAR(100) NOT NULL,
+    customer_first_name VARCHAR(50) NOT NULL,
+    customer_last_name VARCHAR(50) NOT NULL,
+    shipping_line_1 VARCHAR(100) NOT NULL,
+    shipping_line_2 VARCHAR(100),
+    postcode VARCHAR(12),
+    order_total FLOAT NOT NULL,
+    discount FLOAT(20)
+);
+
+CREATE TABLE order_items (
+    order_id VARCHAR(100) NOT NULL,
+    product_id VARCHAR(10) NOT NULL,
+    quantity INTEGER NOT NULL,
+    price FLOAT NOT NULL
+);

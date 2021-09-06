@@ -22,7 +22,11 @@ const cartSlice = createSlice({
         return item.id === action.payload.id;
       });
       if (index !== -1) {
-        state.cart[index].qty += action.payload.qty;
+        const newQty = state.cart[index].qty + action.payload.qty;
+        if (newQty <= action.payload.stock_count) {
+          state.cart[index].qty += action.payload.qty;
+        }
+
         //item is already in cart
       } else {
         state.cart.push(action.payload);

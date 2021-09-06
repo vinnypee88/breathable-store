@@ -7,6 +7,7 @@ import { emptyCartRedux } from "../redux/slices/cartSlice";
 
 import SuccessItem from "../components/SuccessItem";
 import SuccessDetails from "../components/SuccessDetails";
+import { orderSubmit } from "../redux/actions/orderAction";
 
 const SuccessScreen = () => {
   //empty cart on render??????
@@ -31,6 +32,7 @@ const SuccessScreen = () => {
         setOrderId(items.payload.payment_intent);
         setCustomerName(items.payload.shipping.name);
         dispatch(emptyCartRedux());
+        orderSubmit(items);
       } catch (error) {
         console.log(error);
       }

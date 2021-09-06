@@ -3,10 +3,9 @@ const router = express.Router();
 const stripe = require("stripe")(process.env.SECRET_KEY);
 const getPrice = require("../controller/checkoutController");
 
-//POST checkout
-//route /create-checkout-session
+//GET details from success object from stripe
+//route /success
 //access Public
-
 router.get("/success", async (req, res) => {
   const session = await stripe.checkout.sessions.retrieve(
     req.query.session_id,
@@ -17,9 +16,11 @@ router.get("/success", async (req, res) => {
   res.json(session);
 });
 
+//POST checkout
+//route /create-checkout-session
+//access Public
 router.post("/", async (req, res) => {
   try {
-    console.log("route hit");
     //create lineItems array by retrieving prices from the DB
     const lineItems = req.body.items.map(async (item) => {
       const unitPriceFromDB = await getPrice(item.id);

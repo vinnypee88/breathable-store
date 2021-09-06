@@ -40,7 +40,9 @@ const ProductScreen = () => {
           <p>
             Status:{" "}
             <span>
-              {productInfo.stock_count > 0 ? "In Stock" : "Out of Stock"}
+              {productInfo.stock_count > 0
+                ? `${productInfo.stock_count} In Stock`
+                : "Out of Stock"}
             </span>
           </p>
 
