@@ -6,7 +6,7 @@ const pool = require("../db/db");
 //POST register
 //route /api/register
 //access Public
-router.use("/register", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const {
       email,
