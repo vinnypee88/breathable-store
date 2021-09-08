@@ -1,0 +1,50 @@
+.loginscreen {
+  max-width: 1300px;
+  margin: 5rem;
+  overflow: hidden;
+}
+
+.loginscreen_title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.loginscreen_form {
+  width: 40%;
+}
+
+.loginscreen_form_row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.loginscreen_form_row > label {
+  flex: 0.3;
+}
+.loginscreen_form_row > input {
+  flex: 0.7;
+  padding: 0.2rem;
+}
+
+.loginscreen_form > input {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.loginscreen_form > label {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.loginscreen_submitbutton {
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+.loginscreen_submitbutton:hover {
+  background-color: #0c0ebd;
+  color: #f4f4f4;
+}

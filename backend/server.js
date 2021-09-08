@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
 //initialise app
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -22,6 +23,7 @@ const loginRoutes = require("./routes/loginRoutes");
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,7 +43,13 @@ app.use("/api/register", registerRoutes);
 app.use("/api/auth/login", loginRoutes);
 app.post("/logout", (req, res) => {
   req.logOut();
-  res.redirect("/api/auth/login");
+  res.cookie("connect.sid", "", { maxAge: 1 });
+  res.json({ message: "loggedOut" });
+});
+
+app.get("/order", (req, res) => {
+  console.log(req.session.passport);
+  res.json({ message: "order here" });
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

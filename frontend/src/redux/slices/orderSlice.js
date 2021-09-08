@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //thunk imports
 import { getOrderDetails } from "../thunks/orderThunks";
 
-//Product Slice will add product objects to the store so that product components can be rendered.
+//Order Slice stores orders into state only after a purchase has been made and only up until session close.
 
 const orderSlice = createSlice({
   name: "orderSlice",

@@ -1,12 +1,26 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const getUserByEmail = require("../controller/authController");
 
-//GET loginpage
-//route /api/auth/login
+//GET loginSuccess
+//route /api/auth/success
 //access Public
-router.get("/", (req, res) => {
-  res.send("login Page");
+router.get("/success", async (req, res) => {
+  try {
+    const userInfo = await getUserByEmail(req.session.passport.user);
+    delete userInfo.password;
+    res.json({ userInfo });
+  } catch (error) {
+    res.status(401).send("No details found");
+  }
+});
+
+//GET loginFailed
+//route /api/auth/failed
+//access Public
+router.get("/failed", (req, res) => {
+  res.status(401).send("Credentials invalid");
 });
 
 //POST login attempt
@@ -15,8 +29,8 @@ router.get("/", (req, res) => {
 router.post(
   "/",
   passport.authenticate("local", {
-    successRedirect: "/api/products",
-    failureRedirect: "/api/auth/login",
+    successRedirect: "/api/auth/login/success",
+    failureRedirect: "/api/auth/login/failed",
   })
 );
 

@@ -1,13 +1,21 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "../redux/slices/cartSlice";
+import { logout } from "../redux/thunks/userThunk";
+import { selectLoggedIn, selectUserDetails } from "../redux/slices/userSlice";
 
 const Navbar = ({ click }) => {
   const cart = useSelector(selectCart);
+  const dispatch = useDispatch();
   const getCartCount = () => {
     return cart.reduce((totalQty, item) => Number(item.qty) + totalQty, 0);
   };
+  const logOut = async () => {
+    dispatch(logout());
+  };
+  const loggedIn = useSelector(selectLoggedIn);
+  const user = useSelector(selectUserDetails);
 
   return (
     <nav className="navbar">
@@ -20,6 +28,14 @@ const Navbar = ({ click }) => {
       {/* links */}
       <ul className="navbar_links">
         <li>
+          {" "}
+          {loggedIn ? (
+            <Link to="/">Welcome to the Store {user.userInfo.first_name}!</Link>
+          ) : (
+            <p></p>
+          )}
+        </li>
+        <li>
           <Link to="/cart" className="cart_link">
             {/* icon */}
             <i className="fas fa-shopping-cart"></i>
@@ -29,7 +45,17 @@ const Navbar = ({ click }) => {
             </span>
           </Link>
         </li>
-        <li></li>
+        <li>
+          {loggedIn ? (
+            <button className="logout_emoji" onClick={() => logOut()}>
+              🚪
+            </button>
+          ) : (
+            <Link to="/login" className="login_button">
+              Login
+            </Link>
+          )}
+        </li>
       </ul>
       {/* hamburgermenu mobile */}
       <div className="hamburger_menu" onClick={click}>
