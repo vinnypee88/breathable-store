@@ -30,7 +30,9 @@ const Navbar = ({ click }) => {
         <li>
           {" "}
           {loggedIn ? (
-            <Link to="/">Welcome to the Store {user.userInfo.first_name}!</Link>
+            <Link to="/user">
+              Welcome to the Store {user.userInfo.first_name}!
+            </Link>
           ) : (
             <p></p>
           )}
@@ -47,9 +49,9 @@ const Navbar = ({ click }) => {
         </li>
         <li>
           {loggedIn ? (
-            <button className="logout_emoji" onClick={() => logOut()}>
-              🚪
-            </button>
+            <Link to="/" onClick={() => logOut()}>
+              🚪 Logout
+            </Link>
           ) : (
             <Link to="/login" className="login_button">
               Login

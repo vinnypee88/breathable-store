@@ -9,9 +9,10 @@ const PORT = process.env.PORT || 5000;
 
 //passport local
 const passport = require("passport");
-const getUserByEmail = require("./controller/authController");
+const auth = require("./controller/authController");
+const getUser = new auth();
 const initializePassport = require("./auth/passport-config");
-initializePassport(passport, getUserByEmail);
+initializePassport(passport, getUser.getUserByEmail);
 
 //Route Imports
 const productRoutes = require("./routes/productRoutes");

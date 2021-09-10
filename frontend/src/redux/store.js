@@ -4,13 +4,15 @@ import { configureStore } from "@reduxjs/toolkit";
 import productSliceReducer from "./slices/productSlice";
 import cartSliceReducer from "./slices/cartSlice";
 import orderSliceReducer from "./slices/orderSlice";
-import userSliceREducer from "./slices/userSlice";
+import userSliceReducer from "./slices/userSlice";
+import orderHistoryReducer from "./slices/orderHistorySlice";
 
 export const store = configureStore({
   reducer: {
     productSlice: productSliceReducer,
     cartSlice: cartSliceReducer,
     orderSlice: orderSliceReducer,
-    userSlice: userSliceREducer,
+    userSlice: userSliceReducer,
+    orderHistorySlice: orderHistoryReducer,
   },
 });

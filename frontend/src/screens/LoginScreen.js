@@ -16,10 +16,15 @@ const LoginScreen = () => {
   const [addressLine2, setAddressLine2] = useState("");
   const [postcode, setPostcode] = useState("");
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const credentials = { email: emailLogin, password: passwordLogin };
-    dispatch(login(credentials));
+    const loginAttempt = await dispatch(login(credentials));
+    if (loginAttempt.payload === undefined) {
+      alert("incorrect credentials");
+    } else {
+      return;
+    }
   };
 
   const handleRegisterSubmit = async (e) => {
@@ -34,7 +39,6 @@ const LoginScreen = () => {
       postcode,
     };
     const registerAttempt = await register(credentials);
-    console.log(registerAttempt);
     if (registerAttempt.message === "Invalid Entries") {
       alert("Invalid Entries");
     } else if (registerAttempt.message === "User already exists") {

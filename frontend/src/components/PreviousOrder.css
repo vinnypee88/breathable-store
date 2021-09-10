@@ -1,0 +1,17 @@
+.previous_order {
+  margin: 1rem;
+  border-top: solid #0c0ebd 1px;
+}
+
+.previous_order_order_id {
+  font-weight: bold;
+  color: #0c0ebd;
+  font-size: small;
+  margin-top: 1rem;
+}
+
+.previous_order_item_id {
+  font-weight: bold;
+  color: #0c0ebd;
+  margin-top: 0.8rem;
+}

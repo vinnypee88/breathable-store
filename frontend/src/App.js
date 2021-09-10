@@ -15,6 +15,7 @@ import CartScreen from "./screens/CartScreen";
 import SuccessScreen from "./screens/SuccessScreen";
 import CancelScreen from "./screens/CancelScreen";
 import LoginScreen from "./screens/LoginScreen";
+import UserScreen from "./screens/UserScreen";
 
 //components
 import Navbar from "./components/Navbar";
@@ -51,6 +52,7 @@ function App() {
           <Route exact path="/login" component={LoginScreen}>
             {login ? <Redirect to="/" /> : null}
           </Route>
+          <Route exact path="/user" component={UserScreen} />
         </Switch>
       </main>
     </Router>

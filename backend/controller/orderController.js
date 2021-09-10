@@ -61,7 +61,29 @@ class orders {
     }
   };
 
-  getPreviousOrders = async (req, res) => {};
+  getPreviousOrders = async (req, res) => {
+    try {
+      const email = req.session.passport.user;
+      const getOrders = await pool.query(
+        "SELECT * FROM orders WHERE customer_email = $1",
+        [email]
+      );
+      const orders = getOrders.rows;
+
+      const fullOrderInfo = orders.map(async (order) => {
+        const items = await pool.query(
+          "SELECT * FROM order_items WHERE order_id = $1",
+          [order.id]
+        );
+        order.items = items.rows;
+        return order;
+      });
+
+      res.json(await Promise.all(fullOrderInfo));
+    } catch (error) {
+      res.status(400).send("Server Error");
+    }
+  };
 }
 
 module.exports = orders;

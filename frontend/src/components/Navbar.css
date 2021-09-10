@@ -21,13 +21,13 @@
   color: #0c0ebd;
 }
 
-.logout_emoji {
-  font-size: 40px;
+/* .logout_emoji {
+  font-size: 0px;
   border: none;
   background-color: rgb(83, 118, 216);
   cursor: pointer;
   color: black;
-}
+} */
 
 .navbar_links {
   display: flex;
