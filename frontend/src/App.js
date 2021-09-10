@@ -53,6 +53,7 @@ function App() {
             {login ? <Redirect to="/" /> : null}
           </Route>
           <Route exact path="/user" component={UserScreen} />
+          <Route path="*" component={HomeScreen} />
         </Switch>
       </main>
     </Router>

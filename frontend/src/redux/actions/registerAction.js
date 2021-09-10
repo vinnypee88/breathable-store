@@ -1,5 +1,5 @@
 export const register = async (credentials) => {
-  const registerAttempt = await fetch("http://localhost:5000/api/register", {
+  const registerAttempt = await fetch("/api/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

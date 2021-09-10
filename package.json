@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "16.4.2",
+    "npm": "7.18.1"
+  },
   "scripts": {
+    "heroku-postbuild": "cd frontend  && npm install && npm run build",
     "start": "node backend/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vinod Patel",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

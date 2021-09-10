@@ -9,7 +9,7 @@ const UserScreen = () => {
   const deleteAccount = async (e) => {
     //TODO potentially add a confirmation message so the user is sure??
     e.preventDefault();
-    await fetch("http://localhost:5000/api/auth/login", {
+    await fetch("/api/auth/login", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

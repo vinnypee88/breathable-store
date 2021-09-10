@@ -35,7 +35,7 @@ const CartScreen = () => {
 
   const checkout = async (e) => {
     e.preventDefault();
-    await fetch("http://localhost:5000/create-checkout-session", {
+    await fetch("/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

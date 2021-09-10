@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 //initialise app
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -35,6 +36,11 @@ app.use(
     saveUninitialized: false,
   })
 );
+if (process.env.NODE_ENV === "production") {
+  // serve static content from build
+  //npm run build creates build folder and we want to target the index.js file inside it. The dirname, client/build is directed to it.
+  app.use(express.static(path.join(__dirname, "front-end/build")));
+}
 
 //Routes
 app.use("/api/products", productRoutes);
@@ -51,6 +57,10 @@ app.post("/logout", (req, res) => {
 app.get("/order", (req, res) => {
   console.log(req.session.passport);
   res.json({ message: "order here" });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend/build/index.html"));
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

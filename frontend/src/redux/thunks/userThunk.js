@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const login = createAsyncThunk(
   "userSlice/login",
   async (credentials) => {
-    const loginAttempt = await fetch("http://localhost:5000/api/auth/login", {
+    const loginAttempt = await fetch("/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const login = createAsyncThunk(
 );
 
 export const logout = createAsyncThunk("userSlice/logout", async () => {
-  const logoutAttempt = await fetch("http://localhost:5000/logout", {
+  const logoutAttempt = await fetch("/logout", {
     method: "POST",
     credentials: "include",
   });
