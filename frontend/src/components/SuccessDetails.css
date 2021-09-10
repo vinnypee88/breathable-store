@@ -17,3 +17,12 @@
 .shippingdetails_container > p {
   margin-bottom: 0.3rem;
 }
+
+@media (max-width: 400px) {
+  .ordersummary_orderid {
+    font-size: small;
+  }
+  .shippingdetails_container {
+    font-size: small;
+  }
+}

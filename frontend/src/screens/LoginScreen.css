@@ -48,3 +48,27 @@
   background-color: #0c0ebd;
   color: #f4f4f4;
 }
+
+@media (max-width: 900px) {
+  .loginscreen {
+    max-width: 1300px;
+    margin: 2rem;
+    overflow: hidden;
+  }
+  .loginscreen_form {
+    width: 50%;
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 600px) {
+  .loginscreen {
+    max-width: 1300px;
+    margin: 1rem;
+    overflow: hidden;
+  }
+  .loginscreen_form {
+    width: 100%;
+    font-size: smaller;
+  }
+}

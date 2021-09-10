@@ -25,3 +25,12 @@
   color: darkblue;
   font-weight: bold;
 }
+
+@media (max-width: 400px) {
+  .successitems_info > p {
+    font-size: small;
+  }
+  .successitem {
+    padding: 1rem;
+  }
+}

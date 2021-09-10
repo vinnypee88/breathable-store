@@ -1,7 +1,9 @@
 import "./SideDrawer.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "../redux/slices/cartSlice";
+import { selectLoggedIn, selectUserDetails } from "../redux/slices/userSlice";
+import { logout } from "../redux/thunks/userThunk";
 
 const SideDrawer = ({ show, click }) => {
   // ------------------------------------------
@@ -13,11 +15,16 @@ const SideDrawer = ({ show, click }) => {
   }
   // ------------------------------------------
 
+  const loggedIn = useSelector(selectLoggedIn);
   const cart = useSelector(selectCart);
   const getCartCount = () => {
     return cart.reduce((totalQty, item) => Number(item.qty) + totalQty, 0);
   };
-
+  const dispatch = useDispatch();
+  const logOut = async () => {
+    dispatch(logout());
+  };
+  const user = useSelector(selectUserDetails);
   return (
     <div className={sideDrawerClass.join(" ")}>
       <ul className="sidedrawer_links" onClick={click}>
@@ -33,6 +40,28 @@ const SideDrawer = ({ show, click }) => {
         <li>
           <Link to="/">Shop</Link>
         </li>
+        {loggedIn ? (
+          <>
+            <li>
+              {" "}
+              <Link to="/user">Hello {user.userInfo.first_name}!</Link>
+            </li>
+
+            <li>
+              {" "}
+              <Link to="/" onClick={() => logOut()}>
+                Logout
+              </Link>
+            </li>
+          </>
+        ) : (
+          <li>
+            {" "}
+            <Link to="/login" className="login_button">
+              Login
+            </Link>
+          </li>
+        )}
       </ul>
     </div>
   );
