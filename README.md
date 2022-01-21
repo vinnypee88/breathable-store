@@ -1,8 +1,8 @@
 # breathable-store
 
-URL - https://breathable-store.herokuapp.com
+## URL - https://breathable-store.herokuapp.com
 
-front end - React with redux
-back end - Node Express with Postgres
-Stripe API to handle payments
-PassportJS to handle Authentication
+- front end - React with redux
+- back end - Node Express with Postgres
+- Stripe API to handle payments
+- PassportJS to handle Authentication
